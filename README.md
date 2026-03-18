@@ -2,12 +2,12 @@
 
 SecureScope is a production-ready full-stack application for web reconnaissance, misconfiguration detection, weighted risk scoring, STRIDE threat classification, and remediation-focused reporting.
 
-## Stack
-- Frontend: React + Vite
-- Backend: FastAPI + SQLAlchemy
-- DB: PostgreSQL
-- Reverse Proxy: Nginx
-- Containerization: Docker + Docker Compose
+## Tech Stack
+- **Frontend:** React + Vite
+- **Backend:** FastAPI + SQLAlchemy
+- **Database:** PostgreSQL
+- **Reverse Proxy:** Nginx
+- **Containerization:** Docker + Docker Compose
 
 ## Folder Structure
 ```
@@ -41,58 +41,64 @@ DEPLOYMENT.md
 
 ## Security Controls Implemented
 - Argon2 password hashing
-- JWT access + refresh token flow with expiry
-- Refresh token revocation via blacklist
-- RBAC at API/service/frontend route levels
-- Least privilege role hierarchy (Admin, Security Analyst, Developer, Viewer)
-- Pydantic schema input validation
-- ORM-based DB operations (SQL injection mitigation)
-- CORS policy restrictions
-- CSRF header verification for state-changing endpoints
+- JWT access & refresh token authentication
+- Refresh token revocation (blacklist)
+- Role-Based Access Control (RBAC)
+- Least privilege role hierarchy
+- Input validation using Pydantic schemas
+- ORM-based database access (SQL injection protection)
+- CORS policy enforcement
+- CSRF protection for state-changing requests
 - HTTP security headers middleware
-- Secure error responses (generic in production)
-- Rate limiting (`slowapi`)
-- `.env`-based secrets/config
+- Secure error handling (production-safe)
+- Rate limiting using `slowapi`
+- Environment-based configuration (`.env`)
 - Audit logging
-- Sensitive field encryption using Fernet
-- Secure report file handling with role-based access
+- Sensitive data encryption (Fernet)
+- Secure report access with role restrictions
 
 ## Recon Features
-- Safe TCP port scan over controlled common ports
+- Controlled TCP port scanning
 - Subdomain enumeration
-- DNS record inspection (A, MX, TXT, NS)
-- TLS configuration check
+- DNS record analysis (A, MX, TXT, NS)
+- TLS/SSL configuration checks
 - HTTP security header validation
-- Technology fingerprinting (`Server`, `X-Powered-By`)
-- OSINT metadata collection (WHOIS)
-- Weighted risk scoring engine
-- STRIDE classification mapping
+- Technology fingerprinting
+- WHOIS metadata collection
+- Risk scoring engine (weighted)
+- STRIDE threat classification
 - CVSS-inspired severity scoring
 
 ## Run Locally
 1. Copy `.env.example` to `.env`
-2. Set secrets in `.env`
+2. Configure environment variables
 3. Start services:
-   `docker compose up --build`
-4. Access app at `http://localhost`
+   ```
+   docker compose up --build
+   ```
+4. Open in browser:
+   ```
+   http://localhost
+   ```
 
-## API Notes
-- Base API: `/api/v1`
-- Register: `POST /auth/register`
-- Login: `POST /auth/login`
-- Run scan: `POST /scans` (Security Analyst+)
-- Reports: `GET /reports` and `GET /reports/{id}/download`
+## Role Model
+- **Admin:** Full system access
+- **Security Analyst:** Run scans and view reports
+- **Developer:** View vulnerabilities and fixes
+- **Viewer:** Read-only access
 
-## Default Role Model
-- Admin: full access
-- Security Analyst: run scans + view reports
-- Developer: view vulnerabilities + remediation
-- Viewer: read-only reports/dashboard
+## Security & Standards
+- STRIDE-based threat modeling
+- Secure coding practices (OWASP aligned)
+- Centralized validation & error handling
+- Audit-ready logging system
+- Deployment hardening guidelines
+- CI/CD ready structure
 
-## SSDLC and OWASP Alignment
-- Threat-informed design with STRIDE tagging
-- Secure defaults and minimal data exposure
-- Centralized validation and exception handling
-- Auditable security events
-- Deployment hardening guidance
-- CI pipeline for repeatable build checks
+## Author
+**Durga Prasad**  
+B.Tech CSE (Cyber Security)  
+Aspiring Software Developer | Security Enthusiast  
+
+## Support
+If you like this project, consider giving it a ⭐ on GitHub!
