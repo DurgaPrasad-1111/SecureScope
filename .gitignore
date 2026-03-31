@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+backend/venv/
+backend/__pycache__/
+backend/instance/
+backend/data/
+backend/logs/
+.env
+.env.*
+!.env.example
+!.env.docker.example
+*.db
+
+# Node
+node_modules/
+recon_frontend/node_modules/
+cybersecurity_saasdashboard_backup/node_modules/
+npm-debug.log
+
+# Docker
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Build
+dist/
+recon_frontend/dist/
+build/
